@@ -9,7 +9,6 @@ import org.hibernate.annotations.ColumnDefault;
 import utez.edu.mx.sgeg.modules.eduInfo.model.EduInfo;
 import utez.edu.mx.sgeg.modules.families.model.Family;
 import utez.edu.mx.sgeg.modules.universities.model.University;
-import utez.edu.mx.sgeg.modules.users.models.User;
 
 import java.util.List;
 

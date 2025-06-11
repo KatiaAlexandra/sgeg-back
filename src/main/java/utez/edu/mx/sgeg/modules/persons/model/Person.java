@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import utez.edu.mx.sgeg.modules.addresses.model.Address;
 import utez.edu.mx.sgeg.modules.gender.model.Gender;
-import utez.edu.mx.sgeg.modules.users.models.User;
+import utez.edu.mx.sgeg.modules.users.models.UserEntity;
 
 import java.util.Date;
 import java.util.List;
@@ -57,5 +57,5 @@ public class Person {
     private List<Address> addresses;
 
     @OneToOne(mappedBy = "person")
-    private User user;
+    private UserEntity userEntity;
 }

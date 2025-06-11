@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import utez.edu.mx.sgeg.kernel.JsonConverter;
 import utez.edu.mx.sgeg.modules.surveys.model.Survey;
-import utez.edu.mx.sgeg.modules.users.models.User;
+import utez.edu.mx.sgeg.modules.users.models.UserEntity;
 
 import java.util.Map;
 
@@ -27,7 +27,7 @@ public class Answer {
 
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private User user;
+    private UserEntity userEntity;
 
     @ManyToOne
     @JoinColumn(name = "id_survey", referencedColumnName = "id_survey")

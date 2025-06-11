@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import utez.edu.mx.sgeg.modules.users.models.User;
+import utez.edu.mx.sgeg.modules.users.models.UserEntity;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ public class Role {
     private int id;
 
     @Column(name = "role_name")
-    private String roleName;
+    private String name;
 
     @ManyToMany(mappedBy = "roles")
     @JsonIgnore
-    private List<User> users;
+    private List<UserEntity> userEntities;
 }

@@ -9,7 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import utez.edu.mx.sgeg.modules.answers.model.Answer;
 import utez.edu.mx.sgeg.modules.periods.model.Period;
 import utez.edu.mx.sgeg.modules.questions.model.Question;
-import utez.edu.mx.sgeg.modules.users.models.User;
+import utez.edu.mx.sgeg.modules.users.models.UserEntity;
 
 import java.util.Date;
 import java.util.List;
@@ -50,7 +50,7 @@ public class Survey {
 
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private User user;
+    private UserEntity userEntity;
 
     @OneToMany(mappedBy = "survey")
     @JsonIgnore
