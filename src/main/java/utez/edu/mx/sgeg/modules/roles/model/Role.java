@@ -2,14 +2,13 @@ package utez.edu.mx.sgeg.modules.roles.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import utez.edu.mx.sgeg.modules.users.models.UserEntity;
+import lombok.*;
+import utez.edu.mx.sgeg.modules.users.models.User;
 
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -23,7 +22,7 @@ public class Role {
     @Column(name = "role_name")
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "role")
     @JsonIgnore
-    private List<UserEntity> userEntities;
+    private List<User> users;
 }

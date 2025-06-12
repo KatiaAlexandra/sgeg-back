@@ -1,34 +1,37 @@
 package utez.edu.mx.sgeg.modules.auth.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import utez.edu.mx.sgeg.modules.users.service.UserService;
-import utez.edu.mx.sgeg.security.jwt.JwtTokenProvider;
+import utez.edu.mx.sgeg.modules.auth.model.AuthRequest;
+import utez.edu.mx.sgeg.modules.auth.service.AuthService;
+
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
+@RequiredArgsConstructor
+@CrossOrigin(origins = {"*"})
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthService authService;
 
-    @Autowired
-    private JwtTokenProvider jwtTokenProvider;
-
-    @Autowired
-    private UserService service;
-
-    @GetMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-        return jwtTokenProvider.generateToken(username);
+    @Operation(summary = "Obtener todos los usuarios")
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@RequestBody AuthRequest request) {
+        String token = authService.login(request.getUsername(), request.getPassword());
+        Map<String, String> response = Map.of("token", token);
+        return ResponseEntity.ok(response);
     }
 
-    @PostMapping
-    public void userPost() {
-        service.SaveUser();
+    @Operation(summary = "Obtener todos los usuarios")
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        authService.logout(request);
+        return ResponseEntity.ok("Sesión cerrada correctamente.");
     }
+
 }

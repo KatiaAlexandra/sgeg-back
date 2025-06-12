@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import utez.edu.mx.sgeg.modules.surveys.model.Survey;
-import utez.edu.mx.sgeg.modules.users.models.UserEntity;
+import utez.edu.mx.sgeg.modules.users.models.User;
 
 import java.util.Date;
 
@@ -23,7 +23,7 @@ public class SentSurvey {
 
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private UserEntity userEntity;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_survey", referencedColumnName = "id_survey")

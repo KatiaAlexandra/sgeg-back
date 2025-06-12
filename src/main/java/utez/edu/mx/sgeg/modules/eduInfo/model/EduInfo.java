@@ -9,7 +9,7 @@ import utez.edu.mx.sgeg.modules.degreeStatus.model.DegreeStatus;
 import utez.edu.mx.sgeg.modules.eduLevels.model.EduLevel;
 import utez.edu.mx.sgeg.modules.mode.model.Mode;
 import utez.edu.mx.sgeg.modules.universities.model.University;
-import utez.edu.mx.sgeg.modules.users.models.UserEntity;
+import utez.edu.mx.sgeg.modules.users.models.User;
 
 @Data
 @AllArgsConstructor
@@ -38,7 +38,7 @@ public class EduInfo {
 
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id_user")
-    private UserEntity userEntity;
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_university", referencedColumnName = "id_university")

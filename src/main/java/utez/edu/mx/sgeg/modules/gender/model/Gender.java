@@ -24,7 +24,7 @@ public class Gender {
     private String gender;
 
     @Column(name="gender_code")
-    private String gender_code;
+    private String genderCode;
 
     @OneToMany(mappedBy = "gender")
     @JsonIgnore

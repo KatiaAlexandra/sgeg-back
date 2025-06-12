@@ -9,7 +9,7 @@ import org.hibernate.annotations.ColumnDefault;
 import utez.edu.mx.sgeg.modules.areas.model.Area;
 import utez.edu.mx.sgeg.modules.eduInfo.model.EduInfo;
 import utez.edu.mx.sgeg.modules.eduLevels.model.EduLevel;
-import utez.edu.mx.sgeg.modules.users.models.UserEntity;
+import utez.edu.mx.sgeg.modules.users.models.User;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class University {
 
     @ManyToOne
     @JoinColumn(name = "id_admin", referencedColumnName = "id_user")
-    private UserEntity adminUni;
+    private User adminUni;
 
     @ManyToMany
     @JoinTable(
